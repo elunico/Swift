@@ -58,6 +58,17 @@ extension String {
         }
         return _newString
     }
+    func reverse () -> String {
+        var _chars:[Character] = []
+        var _string:String = ""
+        for i in self {
+            _chars.append(i)
+        }
+        for (var i = _chars.count - 1; i >= 0; i--) {
+            _string += String(_chars[i])
+        }
+        return _string
+    }
 }
 /*
 var words:[String] = ["one", "two", "three", "four"]

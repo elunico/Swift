@@ -47,6 +47,17 @@ extension String {
         }
         return _newString
     }
+    func reverse () -> String {
+        var _chars:[Character] = []
+        var _string:String = ""
+        for i in self {
+            _chars.append(i)
+        }
+        for (var i = _chars.count - 1; i >= 0; i--) {
+            _string += String(_chars[i])
+        }
+        return _string
+    }
 }
 
 func + (x:Person, y:Person) -> Person {
@@ -212,7 +223,13 @@ class Person {
         return self.name
     }
     func die (thing:Person) {
-        println("\(thing.name!) has died")
+        if let theirName = name {
+            println("\(thing.theirName) has died")
+        }
+        else {
+            println("They have died!")
+        }
+        
     }
     func isAlive () -> Bool {
         if health > 0 {
@@ -254,7 +271,7 @@ class Person {
         }
     }
     func hasName () -> Bool {
-        if name != nil && name != "" {
+        if let theirName = name {
             return true
         }
         else {
