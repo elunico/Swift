@@ -2,7 +2,7 @@
 //  All Extensions.swift
 //  
 //
-//  Created by Thomas Povinelli on 2/20/15.
+//  Created by Thomas on 2/20/15.
 //
 //
 
@@ -10,6 +10,7 @@ import Foundation
 import Cocoa
 
 extension String {
+    // Space out each character in a string by a given number of spaces
     func spaceOut (spaces:Int = 1) -> String {
         var _newString:String = ""
         var _space = ""
@@ -21,6 +22,7 @@ extension String {
         }
         return _newString
     }
+    // Return the String in the reverse order
     func reverse () -> String {
         var _chars:[Character] = []
         var _string:String = ""
@@ -32,6 +34,7 @@ extension String {
         }
         return _string
     }
+    // Check is string is a palindrome either ignoring or counting Whitespace
     func isPalindrome (countSpaces:Bool = false) -> Bool {
         let Whitespace: [Character] = ["\n", "\r", " ", "\t"]
         var _string:String = ""
@@ -51,6 +54,7 @@ extension String {
             return false
         }
     }
+    // Convert all letters in the String to lowercase (copied from Python)
     func toLower () -> String {
         var _string:String = ""
         let lowerLetterConstants:[Character:Character] = ["A":"a", "B":"b", "C":"c", "D":"d", "E":"e", "F":"f", "G":"g", "H":"h", "I":"i", "J":"j", "K":"k", "L":"l", "M":"m", "N":"n", "O":"o", "P":"p", "Q":"q", "R":"r", "S":"s", "T":"t", "U":"u", "V":"V", "W":"w", "X":"x", "Y":"y", "Z":"z"]
@@ -63,6 +67,7 @@ extension String {
         }
         return _string
     }
+    // Convert all letters in a string to uppercase (copied from Python)
     func toUpper() -> String {
         var _string:String = ""
         let upperLetterConstants:[Character:Character] = ["z":"Z", "y":"Y", "x":"X", "w":"W", "V":"V", "u":"U", "t":"T", "s":"S", "r":"R", "q":"Q", "p":"P", "o":"O", "n":"N", "m":"M", "l":"L", "k":"K", "j":"J", "i":"I", "h":"H", "g":"G", "f":"F", "e":"E", "d":"D", "c":"C", "b":"B", "a":"A"]
@@ -75,6 +80,7 @@ extension String {
         }
         return _string
     }
+    // Return a substring of the string from a given index (start at 0) to the end index
     func slice(start:Int, end:Int) -> String {
         var _stringArray:[Character] = []
         var _returnString:String = ""
@@ -86,6 +92,7 @@ extension String {
         }
         return _returnString
     }
+    // return the String in title case
     func toTitle () -> String {
         let upperLetterConstants:[Character:Character] = ["A":"a", "B":"b", "C":"c", "D":"d", "E":"e", "F":"f", "G":"g", "H":"h", "I":"i", "J":"j", "K":"k", "L":"l", "M":"m", "N":"n", "O":"o", "P":"p", "Q":"q", "R":"r", "S":"s", "T":"t", "U":"u", "V":"V", "W":"w", "X":"x", "Y":"y", "Z":"z"]
         var _newString2 = ""
@@ -115,6 +122,7 @@ extension String {
         }
         return _newString2
     }
+    // String length
     var length:Int {
         var c:Int = 0
         for i in self {
@@ -125,10 +133,12 @@ extension String {
 }
 
 extension Array {
+    // Return a single random item
     func randomItem () -> T {
         let index = Int(arc4random_uniform(UInt32(self.count)))
         return self[index]
     }
+    // Get every other element from an array starting at a certain index
     func everyOther (start:Int=0) -> Array<T> {
         var _everyOther:Array = []
         for (var i = start; i < self.count; i+=2){
@@ -136,9 +146,11 @@ extension Array {
         }
         return _everyOther
     }
+    // Get an item
     func getItem (item:Int=0) -> T {
         return self[item]
     }
+    // Get all items between a start point and end point
     func xgetItems (end:Int, start:Int = 0) -> Array<T> {
         var _getItems:Array = []
         for (var i = start; i < end; i++) {
@@ -146,6 +158,7 @@ extension Array {
         }
         return _getItems
     }
+    // Get a certain quantity of items beginning at a start index
     func getItems (end:Int, start:Int = 0) -> Array<T> {
         var _getItems:Array = []
         for (var i = start; i < end+start; i++) {
