@@ -167,3 +167,25 @@ extension Array {
         return _getItems
     }
 }
+
+extension Int {
+    func isGreater(a:Int) -> Bool {
+        return self > a
+    }
+    func isLesser(b:Int) -> Bool {
+        return self < b
+    }
+    func isLesserGreater(greaterthan:Int, lessthan:Int) -> Bool {
+        return (greaterthan < self) && (self < lessthan)
+    }
+    func isLeapYear() -> Bool {
+        return year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)
+    }
+}
+
+extension Double {
+    var to_i:Int {
+        return Int(self)
+    }
+}
+
