@@ -179,7 +179,7 @@ extension Int {
         return (greaterthan < self) && (self < lessthan)
     }
     func isLeapYear() -> Bool {
-        return year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)
+        return self % 4 == 0 && (self % 100 != 0 || self % 400 == 0)
     }
 }
 
