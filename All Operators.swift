@@ -1,8 +1,13 @@
-#!/usr/bin/xcrun swift
-// Created by Thomas
+//
+//  All Operators.swift
+//  
+//
+//  Created by Thomas on 3/6/15.
+//
+//
 
-import Cocoa // needed for the power operator
-import Foundation // needed for the input function
+import Foundation
+import Cocoa
 
 //input function from Python
 func input(message:String) -> String {
@@ -12,6 +17,32 @@ func input(message:String) -> String {
     var strData = NSString(data: inputData, encoding: NSUTF8StringEncoding)!
     
     return strData.stringByTrimmingCharactersInSet(NSCharacterSet.newlineCharacterSet())
+}
+
+/**************************************************************/
+
+// AND operator that returns Ints not Bools
+infix operator &&& {}
+
+func &&& (l:Bool, r:Bool) -> Int {
+    if (l && r) {
+        return 1
+    } else {
+        return 0
+    }
+}
+
+/**************************************************************/
+
+// OR operator that returns Ints not Bools
+infix operator ||| {}
+
+func ||| (l: Bool, r:Bool) -> Int {
+    if (l || r) {
+        return 1
+    } else {
+        return 0
+    }
 }
 
 /**************************************************************/
@@ -39,8 +70,3 @@ postfix func *! (num:Int) -> Int {
 
 /**************************************************************/
 
-var x:String
-println(10*!)
-println(2**10)
-x = input("Please enter your name: ")
-println(x);
