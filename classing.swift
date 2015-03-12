@@ -224,12 +224,12 @@ class Person {
     }
     func die (thing:Person) {
         if let theirName = name {
-            println("\(thing.theirName) has died")
+            println("\(theirName) has died")
         }
         else {
             println("They have died!")
         }
-        
+
     }
     func isAlive () -> Bool {
         if health > 0 {
