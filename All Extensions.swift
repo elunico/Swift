@@ -10,6 +10,24 @@ import Foundation
 import Cocoa
 
 extension String {
+    // Return a Character array of the string either preserving or removing whitespace
+    func makeArray (preserveWhiteSpace: Bool = true) -> [Character] {
+        let whitespace:[Character] = [" ", "\t", "\n", "\r"]
+        var _chars: [Character] = []
+        if preserveWhiteSpace {
+            for i in self {
+                _chars.append(i)
+            }
+        } else {
+            for i in self {
+                if contains(whitespace, i) {continue}
+                _chars.append(i)
+            }
+        }
+        
+        
+        return _chars
+    }
     // Space out each character in a string by a given number of spaces
     func spaceOut (spaces:Int = 1) -> String {
         var _newString:String = ""
