@@ -11,7 +11,7 @@ import Cocoa
 
 extension String {
     // Return a Character array of the string either preserving or removing whitespace
-    func makeArray (preserveWhiteSpace: Bool = true) -> [Character] {
+    func explode (preserveWhiteSpace: Bool = true) -> [Character] {
         let whitespace:[Character] = [" ", "\t", "\n", "\r"]
         var _chars: [Character] = []
         if preserveWhiteSpace {
