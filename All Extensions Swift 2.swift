@@ -1,12 +1,11 @@
 //
-//  All Extensions.swift
+//  All Extensions Swift 2.swift
 //  
 //
-//  Created by Thomas on 2/20/15.
+//  Created by Thomas Povinelli on 6/10/15.
 //
 //
 
-import Foundation
 import Cocoa
 
 extension String {
@@ -15,12 +14,12 @@ extension String {
         let whitespace:[Character] = [" ", "\t", "\n", "\r"]
         var _chars: [Character] = []
         if preserveWhiteSpace {
-            for i in self {
+            for i in self.characters {
                 _chars.append(i)
             }
         } else {
-            for i in self {
-                if contains(whitespace, i) {continue}
+            for i in self.characters {
+                if whitespace.contains(i) {continue}
                 _chars.append(i)
             }
         }
@@ -35,7 +34,7 @@ extension String {
         for (var i = 0; i < spaces; i++){
             _space += " "
         }
-        for i in self {
+        for i in self.characters {
             _newString = _newString + String(i) + _space
         }
         return _newString
@@ -44,7 +43,7 @@ extension String {
     func reverse () -> String {
         var _chars:[Character] = []
         var _string:String = ""
-        for i in self {
+        for i in self.characters {
             _chars.append(i)
         }
         for (var i = _chars.count - 1; i >= 0; i--) {
@@ -57,8 +56,8 @@ extension String {
         let Whitespace: [Character] = ["\n", "\r", " ", "\t"]
         var _string:String = ""
         if !countSpaces {
-            for i in self {
-                if contains(Whitespace, i) {
+            for i in self.characters {
+                if Whitespace.contains(i) {
                     continue
                 }
                 _string += String(i)
@@ -76,8 +75,8 @@ extension String {
     func toLower () -> String {
         var _string:String = ""
         let lowerLetterConstants:[Character:Character] = ["A":"a", "B":"b", "C":"c", "D":"d", "E":"e", "F":"f", "G":"g", "H":"h", "I":"i", "J":"j", "K":"k", "L":"l", "M":"m", "N":"n", "O":"o", "P":"p", "Q":"q", "R":"r", "S":"s", "T":"t", "U":"u", "V":"V", "W":"w", "X":"x", "Y":"y", "Z":"z"]
-        for i in self {
-            if contains(lowerLetterConstants.keys, i) {
+        for i in self.characters {
+            if lowerLetterConstants.keys.contains(i) {
                 _string +=  String(lowerLetterConstants[i]!)
                 continue
             }
@@ -89,8 +88,8 @@ extension String {
     func toUpper() -> String {
         var _string:String = ""
         let upperLetterConstants:[Character:Character] = ["z":"Z", "y":"Y", "x":"X", "w":"W", "V":"V", "u":"U", "t":"T", "s":"S", "r":"R", "q":"Q", "p":"P", "o":"O", "n":"N", "m":"M", "l":"L", "k":"K", "j":"J", "i":"I", "h":"H", "g":"G", "f":"F", "e":"E", "d":"D", "c":"C", "b":"B", "a":"A"]
-        for i in self {
-            if contains(upperLetterConstants.keys, i) {
+        for i in self.characters {
+            if upperLetterConstants.keys.contains(i) {
                 _string += String(upperLetterConstants[i]!)
                 continue
             }
@@ -102,7 +101,7 @@ extension String {
     func slice(start:Int, end:Int) -> String {
         var _stringArray:[Character] = []
         var _returnString:String = ""
-        for i in self {
+        for i in self.characters {
             _stringArray.append(i)
         }
         for (var i = start; i < end; i++) {
@@ -115,7 +114,7 @@ extension String {
         let upperLetterConstants:[Character:Character] = ["A":"a", "B":"b", "C":"c", "D":"d", "E":"e", "F":"f", "G":"g", "H":"h", "I":"i", "J":"j", "K":"k", "L":"l", "M":"m", "N":"n", "O":"o", "P":"p", "Q":"q", "R":"r", "S":"s", "T":"t", "U":"u", "V":"V", "W":"w", "X":"x", "Y":"y", "Z":"z"]
         var _newString2 = ""
         var j = 0
-        for i in self {
+        for i in self.characters {
             if j == 0 {
                 _newString2 += String(i).toUpper()
                 j++
@@ -130,7 +129,7 @@ extension String {
                 j++
                 continue
             }
-            if contains(upperLetterConstants.keys, i) {
+            if upperLetterConstants.keys.contains(i){
                 _newString2 += String(i).toLower()
                 j++
                 continue
@@ -141,13 +140,14 @@ extension String {
         return _newString2
     }
     // String length
-    var length:Int {
+    var count:Int {
         var c:Int = 0
-        for i in self {
+        for _ in self.characters {
             c++
         }
         return c
     }
+    
 }
 
 extension Array {
@@ -206,4 +206,3 @@ extension Double {
         return Int(self)
     }
 }
-
