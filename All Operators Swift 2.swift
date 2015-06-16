@@ -84,3 +84,13 @@ postfix func *! (num:Int) -> Int {
 
 /**************************************************************/
 
+// Logical xor
+infix operator ^^ {}
+
+func ^^ (l:Bool, r:Bool) -> Bool {
+    if (l || r) && (!(l && r)) {
+        return true
+    }
+    return false
+}
+
